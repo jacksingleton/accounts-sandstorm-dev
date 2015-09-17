@@ -27,13 +27,13 @@ You can control the values with environment variables, but defaults are also def
 The helper functions are:
 
 ```
-// Execute with a custom permissions list
+// Run with x-sandstorm-permissions = 'permissions,go,here'
 withPermissions(['permissions', 'go', 'here'], function() { ... });
 
-// Execute with permissions = 'owner'
+// Run with x-sandstorm-permissions = 'owner'
 withOwner(function() { ... });
 
-// Execute with permissions = ''
+// Run with x-sandstorm-permissions = ''
 withNoPermissions(function { ...});
 ```
 
