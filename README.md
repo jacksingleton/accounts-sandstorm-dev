@@ -2,10 +2,10 @@
 
 This was written as a companion to kenton:accounts-sandstorm
 
-It provides two things:
+It does two things for you:
 
 1. Inserts fake Sandstorm user headers when the meteor app is running in dev
-   mode, which is very handy during the development workflow
+   mode, so you can develop your app outside of Sandstorm
 
 2. Provides a handful of helper functions mainly for use in client integration
    tests to stub out the current user permissions
