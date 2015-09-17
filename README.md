@@ -1,6 +1,6 @@
 # accounts-sandstorm-dev
 
-This was written as a companion to kenton:accounts-sandstorm
+This was written as a companion to [kenton:accounts-sandstorm](https://github.com/sandstorm-io/meteor-accounts-sandstorm)
 
 It does two things for you:
 
@@ -17,7 +17,9 @@ The package uses the `debugOnly` flag to prevent it from being included in the p
 You can control the values with environment variables, but defaults are also defined:
 
 `STUB_USERNAME='Dev User'`
+
 `STUB_USER_ID='dev-user-id'`
+
 `STUB_PERMISSIONS='owner'`
 
 ## Test Helpers
