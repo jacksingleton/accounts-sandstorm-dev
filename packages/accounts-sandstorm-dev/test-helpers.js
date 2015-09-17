@@ -20,10 +20,11 @@ withPermissions = this.withPermissions = function(permissions, f) {
   });
 };
 
+withNoPermissions = this.withNoPermissions = function(f) {
+  withPermissions([], f);
+};
+
 withOwner = this.withOwner = function(f) {
   withPermissions(['owner'], f);
 };
 
-withNonOwner = this.withNonOwner = function(f) {
-  withPermissions([], f);
-};
