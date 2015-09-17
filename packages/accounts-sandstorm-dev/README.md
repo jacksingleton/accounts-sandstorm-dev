@@ -1,23 +1,40 @@
-# Accounts Sandstorm Dev
+# accounts-sandstorm-dev
 
-This package does two things:
+This was written as a companion to [kenton:accounts-sandstorm](https://github.com/sandstorm-io/meteor-accounts-sandstorm)
 
-1. Adds stub sandstorm user headers when the app is running in
-   dev mode.
+It does two things for you:
 
-This lets apps that depend on user headers from sandstorm run
-outside of Sandstorm (ie via `meteor` or `meteor dev`) - which
-is helpful during the development workflow.
+1. Inserts fake Sandstorm user headers when the meteor app is running in dev
+   mode, so you can develop your app outside of Sandstorm
 
-2. Allows changing the permissions of the logged in user in tests.
+2. Provides a handful of helper functions mainly for use in client integration
+   tests to stub out the current user permissions
 
-The package exports several functions:
+The package uses the `debugOnly` flag to prevent it from being included in the production deployment. This means that if you want the fake headers to be added when deployed to meteor.com (say for a quick demo or CI environment) you'll need to run `meteor deploy` with `--debug`.
 
-* `withUserLoggedIn(callback)`
-* `withPermissions(permissions, callback)`
-* `withOwner(callback)`
-* `withNonOwner(callback)`
+## Fake Headers in Dev Mode
 
-`withUserLoggedIn` just insures that the user has been logged in on the client side by the time the callback runs.
+You can control the values with environment variables, but defaults are also defined:
 
-The rest 
+`STUB_USERNAME='Dev User'`
+
+`STUB_USER_ID='dev-user-id'`
+
+`STUB_PERMISSIONS='owner'`
+
+## Test Helpers
+
+The helper functions are:
+
+```
+// Run with x-sandstorm-permissions = 'permissions,go,here'
+withPermissions(['permissions', 'go', 'here'], function() { ... });
+
+// Run with x-sandstorm-permissions = 'owner'
+withOwner(function() { ... });
+
+// Run with x-sandstorm-permissions = ''
+withNoPermissions(function { ...});
+```
+
+For an example test, check out [tests/jasmine/client/integration/StubUserPermissionsSpec.js](/tests/jasmine/client/integration/StubUserPermissionsSpec.js)
