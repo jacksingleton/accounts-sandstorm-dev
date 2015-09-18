@@ -7,7 +7,7 @@
 meteor-platform
 autopublish
 insecure
-accounts-sandstorm-dev
+jacksingleton:accounts-sandstorm-dev
 sanjo:jasmine
 kenton:accounts-sandstorm
 velocity:html-reporter
