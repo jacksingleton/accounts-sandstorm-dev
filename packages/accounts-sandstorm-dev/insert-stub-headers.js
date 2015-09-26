@@ -9,6 +9,9 @@ function defaults(value, fallback) {
 var STUB_PERMISSIONS = defaults(process.env.STUB_PERMISSIONS, 'owner');
 var STUB_USER_ID = defaults(process.env.STUB_USER_ID, 'dev-user-id');
 var STUB_USERNAME = defaults(process.env.STUB_USERNAME, 'Dev User');
+var STUB_PREFERRED_HANDLE = defaults(process.env.STUB_PREFERRED_HANDLE, 'devuser');
+var STUB_USER_PICTURE = defaults(process.env.STUB_USER_PICTURE, undefined);
+var STUB_USER_PRONOUNS = defaults(process.env.STUB_USER_PRONOUNS, 'neutral');
 
 Meteor.startup(function () {
 
@@ -18,9 +21,12 @@ Meteor.startup(function () {
 
   var addSandstormUserHeaders = function(req, res, next) {
     if (shouldInsertFakeHeaders(req)) {
-      req.headers['x-sandstorm-user-id'] = STUB_USER_ID;
-      req.headers['x-sandstorm-username'] = STUB_USERNAME;
-      req.headers['x-sandstorm-permissions'] = STUB_PERMISSIONS;
+      req.headers['X-Sandstorm-User-Id'] = STUB_USER_ID;
+      req.headers['X-Sandstorm-Username'] = STUB_USERNAME;
+      req.headers['X-Sandstorm-Permissions'] = STUB_PERMISSIONS;
+      req.headers['X-Sandstorm-Preferred-Handle'] = STUB_PREFERRED_HANDLE;
+      req.headers['X-Sandstorm-User-Picture'] = STUB_USER_PICTURE;
+      req.headers['X-Sandstorm-User-Pronouns'] = STUB_USER_PRONOUNS;
     }
     return next();
   };
