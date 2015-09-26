@@ -23,5 +23,5 @@ Package.onUse(function(api) {
   api.export('withUserLoggedIn', 'client');
   api.export('withPermissions', 'client');
   api.export('withOwner', 'client');
-  api.export('withNonOwner', 'client');
+  api.export('withNoPermissions', 'client');
 });
