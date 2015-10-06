@@ -1,7 +1,7 @@
 Package.describe({
   name: 'jacksingleton:accounts-sandstorm-dev',
 
-  version: '0.1.0',
+  version: '0.1.1',
 
   summary: 'Stubs Sandstorm user headers and provides helper methods to control their values in tests',
 
