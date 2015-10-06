@@ -21,12 +21,12 @@ Meteor.startup(function () {
 
   var addSandstormUserHeaders = function(req, res, next) {
     if (shouldInsertFakeHeaders(req)) {
-      req.headers['X-Sandstorm-User-Id'] = STUB_USER_ID;
-      req.headers['X-Sandstorm-Username'] = STUB_USERNAME;
-      req.headers['X-Sandstorm-Permissions'] = STUB_PERMISSIONS;
-      req.headers['X-Sandstorm-Preferred-Handle'] = STUB_PREFERRED_HANDLE;
-      req.headers['X-Sandstorm-User-Picture'] = STUB_USER_PICTURE;
-      req.headers['X-Sandstorm-User-Pronouns'] = STUB_USER_PRONOUNS;
+      req.headers['x-sandstorm-user-id'] = STUB_USER_ID;
+      req.headers['x-sandstorm-username'] = STUB_USERNAME;
+      req.headers['x-sandstorm-permissions'] = STUB_PERMISSIONS;
+      req.headers['x-sandstorm-preferred-handle'] = STUB_PREFERRED_HANDLE;
+      req.headers['x-sandstorm-user-picture'] = STUB_USER_PICTURE;
+      req.headers['x-sandstorm-user-pronouns'] = STUB_USER_PRONOUNS;
     }
     return next();
   };
