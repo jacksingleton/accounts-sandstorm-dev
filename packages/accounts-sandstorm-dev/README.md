@@ -22,6 +22,10 @@ You can control the values with environment variables, but defaults are also def
 
 `STUB_PERMISSIONS='owner'`
 
+**Note:** If you already had the browser open,
+[clear your browser's local storage](http://stackoverflow.com/a/9404841/5270598).
+Hard refreshing is not sufficient.
+
 ## Test Helpers
 
 The helper functions are:
