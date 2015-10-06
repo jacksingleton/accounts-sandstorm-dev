@@ -20,6 +20,6 @@ export JASMINE_SERVER_INTEGRATION=0
 export JASMINE_CLIENT_UNIT=0
 export JASMINE_CLIENT_INTEGRATION=1
 
-true || pkill -f meteor
+pkill -f meteor || true
 
 meteor --test --release velocity:METEOR@1.1.0.2_3
